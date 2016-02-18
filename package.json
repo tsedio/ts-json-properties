@@ -1,0 +1,36 @@
+{
+  "name": "properties",
+  "version": "0.0.1",
+  "description": "s",
+  "main": "index.js",
+  "scripts": {
+    "build": "typings install && tsc",
+    "preinstall": "typings install",
+    "install": "tsc",
+    "pretest": "typings install && tsc",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/romakita/log-debug"
+  },
+  "keywords": [
+    "log",
+    "debug",
+    "typescript"
+  ],
+  "author": "Romakita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/romakita/log-debug/issues"
+  },
+  "homepage": "https://github.com/romakita/log-debug",
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "mocha": "^2.4.5",
+    "typescript": "^1.7.5"
+  },
+  "dependencies": {
+    "log-debug": "^1.1.3"
+  }
+}
