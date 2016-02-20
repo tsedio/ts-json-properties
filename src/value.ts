@@ -18,7 +18,7 @@ export function Value(expression){
 
                     this['_'+attributeName] = v;
                     isset = v;
-                    
+
                 },
 
                 enumerable: true,
