@@ -33,6 +33,7 @@
     "typescript": "^1.7.5"
   },
   "dependencies": {
-    "lodash": "^4.5.0"
+    "lodash": "^4.5.0",
+    "log-debug": "^1.1.3"
   }
 }
