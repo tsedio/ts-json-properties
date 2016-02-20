@@ -6,16 +6,24 @@ export function Value(expression){
 
         if(delete targetClass[attributeName]){
 
+            var isset;
+
             Object.defineProperty(targetClass, attributeName, {
 
                 get: function(){
-                    return Properties.initialize().get(expression);
+                    return isset ? this['_'+attributeName] : Properties.initialize().get(expression);
+                },
+
+                set:function(v){
+
+                    this['_'+attributeName] = v;
+                    isset = v;
+                    
                 },
 
                 enumerable: true,
                 configurable: true
             });
-
         }
 
     };

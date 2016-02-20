@@ -8,6 +8,11 @@ var expect = Chai.expect;
 var path = require('path');
 var root = path.resolve(__dirname + './../../');
 
+class TestValue{
+    @Value('MP')
+    public myAttribut = '';
+}
+
 describe('@Value decorator', function(){
 
     beforeEach(function(){
@@ -17,7 +22,7 @@ describe('@Value decorator', function(){
     it('should initialize, load properties.json and values attribute', function(){
 
         var decorator = Value('product');
-        var classInstance:any = new Function();
+        var classInstance:any = new TestValue();
 
         decorator(classInstance, 'myAttribute');
 
