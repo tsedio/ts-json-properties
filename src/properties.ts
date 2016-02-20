@@ -1,6 +1,5 @@
 import path = require("path");
 import Fs = require('fs');
-import * as $log from "log-debug";
 
 var _ = require('lodash');
 
@@ -8,7 +7,6 @@ export class Properties{
 
     private static _instance:Properties;
     private _properties:any;
-    private _debug:boolean = true;
 
     /**
      *
@@ -17,10 +15,6 @@ export class Properties{
     constructor(file:string){
         this._properties = {};
         this.read(this._properties, file);
-
-        if(this._debug){
-            $log.debug('Properties() =>', this._properties);
-        }
     }
 
     /**
@@ -37,10 +31,6 @@ export class Properties{
         }
 
         var properties = require(file);
-
-        if(this._debug){
-            $log.debug('Properties.read() =>', file);
-        }
 
         for(var key in properties){
 
@@ -86,10 +76,6 @@ export class Properties{
      */
     private mount(node:any, cwd:string, propertiesFilesList:any){
         cwd = path.resolve(cwd);
-
-        if(this._debug){
-            $log.debug('Properties.mount() =>', cwd);
-        }
 
         for(var mountName in propertiesFilesList){
 
@@ -182,9 +168,5 @@ export class Properties{
         }
 
         return folder +  '/' + 'properties.json';
-    }
-
-    public debug(b){
-        this._debug = b;
     }
 }
