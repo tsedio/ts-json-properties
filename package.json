@@ -1,7 +1,7 @@
 {
-  "name": "properties",
-  "version": "0.0.1",
-  "description": "s",
+  "name": "json-properties",
+  "version": "1.0.0",
+  "description": "Use typescript decorator to retrieve a property from properties.json and load it on class attribute.",
   "main": "index.js",
   "scripts": {
     "build": "typings install && tsc",
