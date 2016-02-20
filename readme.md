@@ -10,7 +10,7 @@
 ## Installation
 ```bash
 $ npm install -g typings 
-$ npm install properties
+$ npm install json-properties
 ```
 
 ## Example
@@ -67,7 +67,7 @@ In this case, when `Properties` load your properties file in memory, it'll provi
 Next step, You must initialize `Properties` in your `app.js`. Just add this code for that :
 
 ```typescript
-import {Properties} from 'properties';
+import {Properties} from 'json-properties';
 
 Properties.initialize(); //Import automatically properties.json 
 
@@ -80,7 +80,7 @@ Properties.initialize('path/to/properties.json');
 And finally, you use the decorator to values attributes on your class.
 
 ```typescript
-import {Value, Properties} from 'properties';
+import {Value, Properties} from 'json-properties';
 
 export class Foo{
     
