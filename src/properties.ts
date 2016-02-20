@@ -2,6 +2,8 @@ import path = require("path");
 import Fs = require('fs');
 import * as $log from "log-debug";
 
+var _ = require('lodash');
+
 export class Properties{
 
     private static _instance:Properties;
@@ -119,11 +121,25 @@ export class Properties{
             if(node[keys[i]] != undefined && node[keys[i]] != null){
                 node = node[keys[i]];
             }else{
-                return node[keys[i]];
+                var value = node[keys[i]];
+
+                if(typeof value == 'object'){
+                    return _.clone(value);
+                }
+
+                return value;
             }
         }
 
+        if(typeof node == 'object'){
+            return _.clone(node);
+        }
+
         return node;
+    }
+
+    public static getValue(expression){
+        return Properties.initialize().get(expression);
     }
 
     /**
