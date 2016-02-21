@@ -1,4 +1,4 @@
-# json-properties [![Build Status](https://travis-ci.org/Romakita/properties.svg?branch=master)](https://travis-ci.org/Romakita/properties)
+# json-properties [![Build Status](https://travis-ci.org/Romakita/json-properties.svg?branch=master)](https://travis-ci.org/Romakita/json-properties)
 
 > Use typescript decorator to retrieve a property from properties.json and load it on class attribute.
 
