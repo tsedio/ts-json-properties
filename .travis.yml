@@ -6,9 +6,11 @@ node_js:
   - '5'
 
 before_install:
-  - npm install -g mocha typings typescript
-  - tsc --version
-install:
-  - npm install
-test:
-  - mocha
+  - npm install -g typings
+
+script:
+  - "npm test"
+  - "npm run-script test-travis"
+
+after_script:
+  - "test -e ./coverage/lcov.info && npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
