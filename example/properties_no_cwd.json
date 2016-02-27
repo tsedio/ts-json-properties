@@ -1,0 +1,9 @@
+{
+  "product":"MP",
+
+  "propertiesFiles":{
+    "files":{
+      "documents": "./properties/documents.json"
+    }
+  }
+}

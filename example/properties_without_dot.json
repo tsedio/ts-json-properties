@@ -1,0 +1,10 @@
+{
+  "product":"MP",
+
+  "propertiesFiles":{
+    "cwd":"/properties",
+    "files":{
+      "documents": "documents.json"
+    }
+  }
+}

@@ -1,12 +1,12 @@
 
-import {Properties} from "../../src/properties";
-import {Value} from "../../src/value";
+import {Properties} from "../src/properties";
+import {Value} from "../src/value";
 import Chai = require('chai');
 
 var expect = Chai.expect;
 
 var path = require('path');
-var root = path.resolve(__dirname + './../../');
+var root = path.resolve(__dirname + './../');
 
 class TestValue{
     @Value('MP')

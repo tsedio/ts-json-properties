@@ -36,6 +36,8 @@ typings/
 # Typescript
 index.js
 index.js.map
+*.js
+*.js.map
 test/spec/*.js
 test/spec/*.js.map
 

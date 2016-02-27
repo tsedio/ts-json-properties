@@ -1,5 +1,6 @@
 import path = require("path");
 import Fs = require('fs');
+import {parse} from "./parse";
 
 var _ = require('lodash');
 
@@ -52,14 +53,10 @@ export class Properties{
 
                 }catch(er){
 
-                    if(er.message.indexOf('Cannot find') > -1){
-                        var message = er.message + '. \nCheck "propertiesFiles" value in your configuration (' + path.resolve(file) + ').';
+                    var message = er.message + '. \nCheck "propertiesFiles" value in your configuration (' + path.resolve(file) + ').';
 
-                        throw new Error(message);
+                    throw new Error(message);
 
-                    }else{
-                        throw er;
-                    }
                 }
 
             }else{
@@ -98,30 +95,7 @@ export class Properties{
      * @returns {any}
      */
     public get(expression){
-
-        var keys:string[] = expression.split('.'); //eval expression
-        var node:any = this._properties;
-
-        for(var i = 0;i < keys.length; i++){
-
-            if(node[keys[i]] != undefined && node[keys[i]] != null){
-                node = node[keys[i]];
-            }else{
-                var value = node[keys[i]];
-
-                if(typeof value == 'object'){
-                    return _.clone(value);
-                }
-
-                return value;
-            }
-        }
-
-        if(typeof node == 'object'){
-            return _.clone(node);
-        }
-
-        return node;
+        return parse(expression, this._properties);
     }
 
     public static getValue(expression){
@@ -129,19 +103,21 @@ export class Properties{
     }
 
     /**
-     *
+     * Load file properties from file location or autoload file (set just filename)
+     * @param file
+     * @param autoload
      * @returns {Properties}
      */
-    static initialize(file?:string){
+    static initialize(file?:string, autoload?:boolean){
 
         if(!Properties._instance){
-            if(file){
+            if(file && !autoload){
                 Properties._instance = new Properties(file);
             }else{
-                file = this.findPropertiesFile();
+                var propFile = this.findPropertiesFile(file);
 
-                if(file){
-                    Properties._instance = new Properties(file);
+                if(propFile){
+                    Properties._instance = new Properties(<string>propFile);
                 }
             }
         }
@@ -149,24 +125,27 @@ export class Properties{
         return Properties._instance;
     }
 
+    static clean(){
+        Properties._instance = undefined;
+    }
+
     /**
      * Find properties.json in the folder, parent folder, etc...
      * @returns {any}
      */
-    static findPropertiesFile():string{
-        var folder = path.resolve(__dirname);
-        var current = '';
+    static findPropertiesFile(file:string = 'properties.json'):boolean|string{
+        var folder:string = path.resolve(__dirname);
+        var current;
 
-        while(!Fs.existsSync(folder + '/properties.json')){
-            current = path.resolve(folder + '/..');
-
-            if(current == folder){
-                return null;
-            }
-
-            folder = current;
+        while(!Fs.existsSync(folder + '/' + file) && current != folder){
+            current = folder;
+            folder = path.resolve(folder + '/..');
         }
 
-        return folder +  '/' + 'properties.json';
+        if(current == folder){
+            return false;
+        }
+
+        return folder +  '/' + file;
     }
 }
