@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Romakita/json-properties.svg?branch=master)](https://travis-ci.org/Romakita/json-properties)
 [![Coverage Status](https://coveralls.io/repos/github/Romakita/json-properties/badge.svg?branch=master)](https://coveralls.io/github/Romakita/json-properties?branch=master)
-
+[![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=100)](https://github.com/ellerbrock/typescript-badges/) 
+[![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-v18.svg?v=100)](https://github.com/ellerbrock/typescript-badges/)
 
 > Use typescript decorator to retrieve a property from properties.json and load it on class attribute.
 
