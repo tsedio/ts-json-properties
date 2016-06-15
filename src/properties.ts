@@ -2,8 +2,6 @@ import path = require("path");
 import Fs = require('fs');
 import {parse} from "./parse";
 
-var _ = require('lodash');
-
 export class Properties{
 
     private static _instance:Properties;

@@ -1,7 +1,7 @@
-# json-properties 
+# ts-json-properties 
 
-[![Build Status](https://travis-ci.org/Romakita/json-properties.svg?branch=master)](https://travis-ci.org/Romakita/json-properties)
-[![Coverage Status](https://coveralls.io/repos/github/Romakita/json-properties/badge.svg?branch=master)](https://coveralls.io/github/Romakita/json-properties?branch=master)
+[![Build Status](https://travis-ci.org/Romakita/ts-json-properties.svg?branch=master)](https://travis-ci.org/Romakita/ts-json-properties)
+[![Coverage Status](https://coveralls.io/repos/github/Romakita/ts-json-properties/badge.svg?branch=master)](https://coveralls.io/github/Romakita/ts-json-properties?branch=master)
 [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=100)](https://github.com/ellerbrock/typescript-badges/) 
 [![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-v18.svg?v=100)](https://github.com/ellerbrock/typescript-badges/)
 
@@ -15,7 +15,7 @@
 ## Installation
 ```bash
 $ npm install -g typings 
-$ npm install json-properties
+$ npm install ts-json-properties
 ```
 
 ## Example
@@ -72,7 +72,7 @@ In this case, when `Properties` load your properties file in memory, it'll provi
 Next step, You must initialize `Properties` in your `app.js`. Just add this code for that :
 
 ```typescript
-import {Properties} from 'json-properties';
+import {Properties} from 'ts-json-properties';
 
 Properties.initialize(); //Import automatically properties.json 
 
@@ -85,7 +85,7 @@ Properties.initialize('path/to/properties.json');
 And finally, you use the decorator to values attributes on your class.
 
 ```typescript
-import {Value, Properties} from 'json-properties';
+import {Value, Properties} from 'ts-json-properties';
 
 export class Foo{
     

@@ -1,13 +1,17 @@
 {
-  "name": "json-properties",
-  "version": "1.0.7",
-  "description": "Use typescript decorator to retrieve a property from properties.json and load it on class attribute.",
+  "name": "ts-json-properties",
+  "version": "1.0.8",
+  "description": "Use Typescript decorators to retrieve a property from properties.json and load it on class attribute.",
   "main": "index.js",
   "scripts": {
     "preinstall": "typings install",
+    "tsc": "tsc",
     "postinstall": "tsc",
+    "lint": "tslint ./*.ts ./lib/*.ts",
     "test": "mocha --reporter spec --check-leaks --bail test/",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+    "coverage": "npm run test-cov && npm run test-remap",
+    "test-cov": "istanbul cover -x \"examples/**\" node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/",
+    "test-remap": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov-report -t html",
     "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/"
   },
   "repository": {
@@ -15,6 +19,7 @@
     "url": "http://github.com/romakita/json-properties"
   },
   "keywords": [
+    "ts",
     "typescript",
     "properties",
     "immutable",
@@ -31,9 +36,10 @@
     "chai": "^3.5.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
-    "typescript": "^1.7.5"
+    "typescript": "^1.8.10",
+    "remap-istanbul": "^0.6.4"
   },
   "dependencies": {
-    "lodash": "^4.5.0"
+
   }
 }

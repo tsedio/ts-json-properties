@@ -1,9 +1,11 @@
-var _ = require('lodash');
+const clone = (src: any): any => (
+    JSON.parse(JSON.stringify(src))
+);
 
-export function parse(expression:string, scope:any){
-    var keys:string[] = expression.split('.'); //eval expression
+export function parse(expression: string, scope: any): any {
+    let keys: string[] = expression.split(".");
 
-    while((scope = scope[keys.shift()]) && keys.length){}
+    while ((scope = scope[keys.shift()]) && keys.length) {}
 
-    return typeof scope == 'object' ? _.clone(scope) : scope;
+    return typeof scope === "object" ? clone(scope) : scope;
 }
