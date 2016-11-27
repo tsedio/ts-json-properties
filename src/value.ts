@@ -2,11 +2,11 @@ import {Properties} from "./properties";
 
 export function Value(expression){
 
-    return function(targetClass, attributeName){
+    return (targetClass: any, attributeName: string) => {
 
         if(delete targetClass[attributeName]){
 
-            var value;
+            let value;
 
             Object.defineProperty(targetClass, attributeName, {
 
@@ -14,7 +14,7 @@ export function Value(expression){
                     return value ? value : Properties.initialize().get(expression);
                 },
 
-                set:function(v){
+                set: function(v){
                     value = v;
                 },
 
