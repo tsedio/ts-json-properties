@@ -1,4 +1,4 @@
-/coverage
+
 ### Node template
 # Logs
 logs
@@ -45,3 +45,6 @@ test/spec/*.js.map
 # Test
 /stdout
 /stderr
+/lib/
+/coverage/
+/dts/
