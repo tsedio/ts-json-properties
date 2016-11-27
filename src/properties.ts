@@ -2,7 +2,7 @@ import path = require("path");
 import Fs = require('fs');
 import {parse} from "./parse";
 
-export class Properties{
+export class Properties {
 
     private static _instance:Properties;
     private _properties:any;
@@ -11,7 +11,7 @@ export class Properties{
      *
      * @param file
      */
-    constructor(file:string){
+    constructor(file: string) {
         this._properties = {};
         this.read(this._properties, file);
     }
@@ -21,7 +21,7 @@ export class Properties{
      * @param node
      * @param file
      */
-    private read(node:any, file:string){
+    private read(node: any, file: string) {
 
         file = path.resolve(file);
 
@@ -29,15 +29,15 @@ export class Properties{
             throw new Error("Cannot find file properties '"+ file +"'");
         }
 
-        var properties = require(file);
+        let properties = require(file);
 
-        for(var key in properties){
+        for(let key in properties){
 
-            if(key == "propertiesFiles"){
-                var propertiesFiles = properties[key];
+            if(key === "propertiesFiles"){
+                let propertiesFiles = properties[key];
 
                 try{
-                    var cwd = path.dirname(file);
+                    let cwd = path.dirname(file);
 
                     if(propertiesFiles.cwd){
                         if(propertiesFiles.cwd.match(/^\./)) {
@@ -51,7 +51,7 @@ export class Properties{
 
                 }catch(er){
 
-                    var message = er.message + '. \nCheck "propertiesFiles" value in your configuration (' + path.resolve(file) + ').';
+                    let message = er.message + '. \nCheck "propertiesFiles" value in your configuration (' + path.resolve(file) + ').';
 
                     throw new Error(message);
 
@@ -67,18 +67,19 @@ export class Properties{
     /**
      *
      * @param node
+     * @param cwd
      * @param propertiesFilesList
      */
-    private mount(node:any, cwd:string, propertiesFilesList:any){
+    private mount(node: any, cwd: string, propertiesFilesList: any) {
         cwd = path.resolve(cwd);
 
-        for(var mountName in propertiesFilesList){
+        for(let mountName in propertiesFilesList){
 
-            var file = propertiesFilesList[mountName];
-            var keys:string[] = mountName.split('.'); //eval expression
-            var subNode = node;
+            let file = propertiesFilesList[mountName];
+            let keys:string[] = mountName.split('.'); //eval expression
+            let subNode = node;
 
-            for(var key in keys){
+            for(let key in keys){
                 subNode[keys[key]] = {};
                 subNode = subNode[keys[key]];
             }
@@ -92,11 +93,11 @@ export class Properties{
      * @param expression
      * @returns {any}
      */
-    public get(expression){
+    public get(expression) {
         return parse(expression, this._properties);
     }
 
-    public static getValue(expression){
+    public static getValue(expression) {
         return Properties.initialize().get(expression);
     }
 
@@ -106,13 +107,13 @@ export class Properties{
      * @param autoload
      * @returns {Properties}
      */
-    static initialize(file?:string, autoload?:boolean){
+    static initialize(file?: string, autoload?: boolean) {
 
         if(!Properties._instance){
             if(file && !autoload){
                 Properties._instance = new Properties(file);
             }else{
-                var propFile = this.findPropertiesFile(file);
+                let propFile = this.findPropertiesFile(file);
 
                 if(propFile){
                     Properties._instance = new Properties(<string>propFile);
@@ -131,9 +132,9 @@ export class Properties{
      * Find properties.json in the folder, parent folder, etc...
      * @returns {any}
      */
-    static findPropertiesFile(file:string = 'properties.json'):boolean|string{
-        var folder:string = path.resolve(__dirname);
-        var current;
+    static findPropertiesFile(file: string = 'properties.json'): boolean | string {
+        let folder:string = path.resolve(__dirname);
+        let current;
 
         while(!Fs.existsSync(folder + '/' + file) && current != folder){
             current = folder;
