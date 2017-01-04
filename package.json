@@ -37,15 +37,13 @@
   },
   "homepage": "https://github.com/romakita/json-properties",
   "devDependencies": {
+    "@types/node": "^6.0.38",
+    "@types/chai": "^3.4.32",
+    "@types/mocha": "^2.2.31",
     "chai": "^3.5.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "typescript": "^2.0.0",
     "remap-istanbul": "^0.6.4"
-  },
-  "dependencies": {
-    "@types/node": "^6.0.38",
-    "@types/chai": "^3.4.32",
-    "@types/mocha": "^2.2.31"
   }
 }
