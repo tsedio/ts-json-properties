@@ -65,6 +65,19 @@ export class Properties {
     }
 
     /**
+     * Set a new key. If key exists then ignored.
+     * @param key
+     * @param value
+     */
+    public set(key: string, value: any) {
+        if (this._properties[key] === undefined) {
+            this._properties[key] = value;
+        }
+
+        return this;
+    }
+
+    /**
      *
      * @param node
      * @param cwd
