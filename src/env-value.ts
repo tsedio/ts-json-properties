@@ -7,7 +7,7 @@ export function EnvValue(expression, defaultValue?){
         if(delete targetClass[attributeName]){
 
             let value;
-            const defaultKey = "default" + expression.charAt(0).toUpperCase() + expression.slice(1);
+            const defaultKey = expression + 'Default';
 
             Object.defineProperty(targetClass, attributeName, {
 
