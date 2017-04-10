@@ -3,7 +3,7 @@
   "version": "1.1.4",
   "description": "Use Typescript decorators to retrieve a property from properties.json and load it on class attribute.",
   "main": "lib/index.js",
-  "typings": "dts/index.d.ts",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "prepublish": "npm run tsc:compile",
     "coverage": "npm run test-cov && npm run test-remap",
