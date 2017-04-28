@@ -12,11 +12,7 @@
     "isolatedModules": false,
     "suppressImplicitAnyIndexErrors": false,
     "lib": ["es6", "dom"],
-    "types":[
-      "node",
-      "chai",
-      "mocha"
-    ]
+    "typeRoots":["./node_modules/@types"]
   },
 
   "exclude": [

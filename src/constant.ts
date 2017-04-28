@@ -1,22 +1,18 @@
 import {Properties} from "./properties";
 
-export function Value(expression) {
+export function Constant(expression) {
 
     return (targetClass: any, attributeName: string) => {
 
         if (delete targetClass[attributeName]) {
 
-            let value;
+            let constant;
 
             Object.defineProperty(targetClass, attributeName, {
 
                 get: function() {
-                    value = value !== undefined ? value : Properties.initialize().get(expression);
-                    return value;
-                },
-
-                set: function(v) {
-                    value = v;
+                    constant = Object.freeze(constant !== undefined ? constant : Properties.initialize().get(expression));
+                    return constant;
                 },
 
                 enumerable: true,

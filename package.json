@@ -6,7 +6,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "prepublish": "npm run tsc:compile",
-    "coverage": "npm run test-cov && npm run test-remap",
+    "coverage": "npm run test:cov && npm run tes:remap",
     "tslint": "tslint ./src/*.ts",
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
@@ -15,8 +15,8 @@
     "test:cov": "istanbul cover -x \"examples/**\" node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/ && npm run test:remap",
     "test:remap": "./node_modules/.bin/remap-istanbul -i coverage/coverage.json -o coverage/lcov-report -t html",
     "test:travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/",
-    "tsc": "tsc",
-    "tsc:compile": "tsc --project tsconfig.compile.json"
+    "tsc": "./node_modules/typescript/bin/tsc",
+    "tsc:compile": "./node_modules/typescript/bin/tsc --project tsconfig.compile.json"
   },
   "repository": {
     "type": "git",
@@ -37,13 +37,15 @@
   },
   "homepage": "https://github.com/romakita/json-properties",
   "devDependencies": {
-    "@types/node": "^6.0.38",
     "@types/chai": "^3.4.32",
     "@types/mocha": "^2.2.31",
+    "@types/node": "^6.0.38",
     "chai": "^3.5.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
-    "typescript": "^2.0.0",
-    "remap-istanbul": "^0.6.4"
+    "remap-istanbul": "^0.6.4",
+    "ts-node": "^3.0.2",
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.0"
   }
 }

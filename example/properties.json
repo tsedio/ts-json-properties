@@ -1,5 +1,8 @@
 {
   "product":"MP",
+  "config": {
+    "env": "test"
+  },
 
   "propertiesFiles":{
     "cwd":"./properties",

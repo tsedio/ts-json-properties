@@ -1,35 +1,56 @@
 
 import {Properties} from "../src/properties";
 import {Value} from "../src/value";
-import Chai = require('chai');
+import Chai = require("chai");
 
-var expect = Chai.expect;
+const expect = Chai.expect;
 
-var path = require('path');
-var root = path.resolve(__dirname + './../');
+const path = require("path");
+const root = path.resolve(__dirname + "./../");
 
-class TestValue{
-    @Value('MP')
-    public myAttribut = '';
+class TestValue {
+    public myAttribut = "";
+    public config: any;
 }
 
-describe('@Value decorator', function(){
+describe("@Value decorator", function(){
 
     beforeEach(function(){
-        Properties.initialize(root + '/example/properties.json');
+        Properties.initialize(root + "/example/properties.json");
     });
 
-    it('should initialize, load properties.json and values attribute', function(){
+    it("should initialize, load properties.json and values attribute", () => {
 
-        var decorator = Value('product');
-        var classInstance:any = new TestValue();
+        const classInstance: any = new TestValue();
 
-        decorator(classInstance, 'myAttribute');
+        Value("product")(classInstance, "myAttribute");
+        Value("config")(classInstance, "config");
 
-        expect(classInstance.myAttribute).to.equal('MP');
+        expect(classInstance.myAttribute).to.equal("MP");
+        expect(classInstance.config).to.be.an("object");
 
     });
 
+    it("should set value to the decorated attribut", () => {
+
+
+        const classInstance: any = new TestValue();
+
+        Value("product")(classInstance, "myAttribute");
+        Value("config")(classInstance, "config");
+
+        expect(classInstance.myAttribute).to.equal("MP");
+
+        classInstance.myAttribute = "newValue";
+
+        console.log("classInstance.config =>", classInstance.config);
+        expect(classInstance.config).to.be.an("object");
+
+        classInstance.config.env = "prod";
+
+        expect(classInstance.config.env).to.equal("prod");
+
+    });
 
 });
 

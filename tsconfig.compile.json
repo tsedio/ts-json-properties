@@ -18,11 +18,7 @@
     "declaration": true,
     "declarationDir": "lib/",
     "noResolve": false,
-    "types":[
-      "node",
-      "chai",
-      "mocha"
-    ]
+    "typeRoots":["./node_modules/@types"]
   },
 
   "exclude": [
