@@ -1,6 +1,6 @@
 
 import {Properties} from "../src/properties";
-import {Constant} from "../src/Constant";
+import {Constant} from "../src/constant";
 import {expect, assert} from "chai";
 
 const path = require("path");
