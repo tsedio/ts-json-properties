@@ -6,7 +6,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "prepublish": "npm run tsc:compile",
-    "coverage": "npm run test:cov && npm run tes:remap",
+    "coverage": "npm run test:cov && npm run test:remap",
     "tslint": "tslint ./src/*.ts",
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
@@ -39,11 +39,11 @@
   "devDependencies": {
     "@types/chai": "^3.4.32",
     "@types/mocha": "^2.2.31",
-    "@types/node": "^6.0.38",
+    "@types/node": "^7.0.13",
     "chai": "^3.5.0",
     "istanbul": "^0.4.2",
-    "mocha": "^2.4.5",
-    "remap-istanbul": "^0.6.4",
+    "mocha": "^3.3.0",
+    "remap-istanbul": "^0.9.5",
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
     "typescript": "^2.2.0"
