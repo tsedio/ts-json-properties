@@ -43,7 +43,6 @@ describe("@Value decorator", function(){
 
         classInstance.myAttribute = "newValue";
 
-        console.log("classInstance.config =>", classInstance.config);
         expect(classInstance.config).to.be.an("object");
 
         classInstance.config.env = "prod";

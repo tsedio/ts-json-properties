@@ -36,8 +36,8 @@ describe("@Constant decorator", function(){
         Constant("product")(classInstance, "myAttribute");
         Constant("config")(classInstance, "config");
 
-        assert.throws(() => classInstance.myAttribute = "newConstant", TypeError, "Cannot set property myAttribute of #<TestConstant> which has only a getter");
-        assert.throws(() => classInstance.config.env = "newConstant", TypeError, "Cannot assign to read only property \'env\' of object \'#<Object>\'");
+        assert.throws(() => classInstance.myAttribute = "newConstant", TypeError, /Cannot set property myAttribute of/);
+        assert.throws(() => classInstance.config.env = "newConstant", TypeError, /Cannot assign to read only property/);
 
     });
 
