@@ -1,4 +1,3 @@
-import {parse} from "../utils/parse";
 import {Properties} from "../utils/Properties";
 
 export function EnvValue(expression: string, defaultValue?: any) {
@@ -7,7 +6,7 @@ export function EnvValue(expression: string, defaultValue?: any) {
 
         if (delete target[propertyKey]) {
 
-            let value = parse(expression, process.env);
+            let value = process.env[expression.replace(/\./gi, "__")];
 
             Object.defineProperty(target, propertyKey, {
 

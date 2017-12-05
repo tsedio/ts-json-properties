@@ -105,12 +105,32 @@ export class Foo {
         
         //or with Properties Api
         
-        console.log('wsdl', Properties.getValue('wsdl')); // wsdl => {"wsdl1":"..."}
+        console.log('wsdl', Properties.get('wsdl')); // wsdl => {"wsdl1":"..."}
     }
 }
 ```
+> **Note** : All properties returned by `@Value` or `Properties.getValue` are **immutable**.
 
-**Note** : All properties returned by `@Value` or `Properties.getValue` are **immutable**.
+
+### From Env
+
+Define your env variable:
+
+```bash
+export path__to__var = "1000"
+```
+
+Then use `@EnvValue`:
+
+```typescript
+import {Value, Properties} from 'ts-json-properties';
+
+export class Foo {
+    @EventValue('path.to.var')
+    private documents1: string; 
+}
+```
+> Note: if the env value is undefined, the value will be retrieved from properties.json 
 
 ## Test
 
