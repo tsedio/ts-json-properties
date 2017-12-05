@@ -1,46 +1,32 @@
-
-import {Properties} from "../src/properties";
-import {Constant} from "../src/constant";
-import {expect, assert} from "chai";
+import {assert, expect} from "chai";
+import {Constant} from "../../src/decorators/constant";
+import {Properties} from "../../src/utils/Properties";
 
 const path = require("path");
-const root = path.resolve(__dirname + "./../");
+const root = path.resolve(__dirname + "./../../");
 
 class TestConstant {
-    public myAttribut;
-    public config: any;
 }
 
-describe("@Constant decorator", function(){
+describe("@Constant", () => {
+    const classInstance: any = new TestConstant();
 
-    beforeEach(function(){
+    before(() => {
         Properties.initialize(root + "/example/properties.json");
+
+        Constant("product")(classInstance, "myAttribute");
+        Constant("config")(classInstance, "config");
     });
 
     it("should initialize, load properties.json and Constants attribute", () => {
-
-        const classInstance: any = new TestConstant();
-
-        Constant("product")(classInstance, "myAttribute");
-        Constant("config")(classInstance, "config");
-
         expect(classInstance.myAttribute).to.equal("MP");
         expect(classInstance.config).to.be.an("object");
-
     });
 
     it("should not set a value to the decorated attribut", () => {
-
-        const classInstance: any = new TestConstant();
-
-        Constant("product")(classInstance, "myAttribute");
-        Constant("config")(classInstance, "config");
-
         assert.throws(() => classInstance.myAttribute = "newConstant", TypeError, /Cannot set property myAttribute of/);
         assert.throws(() => classInstance.config.env = "newConstant", TypeError, /Cannot assign to read only property/);
-
     });
-
 });
 
 
