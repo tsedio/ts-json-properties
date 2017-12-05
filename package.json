@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/romakita/json-properties.git"
+    "url": "https://github.com/Romakita/ts-json-properties.git"
   },
   "keywords": [
     "ts",
@@ -30,7 +30,7 @@
   "author": "Romakita",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/romakita/json-properties/issues"
+    "url": "https://github.com/Romakita/ts-json-properties/issues"
   },
   "homepage": "https://github.com/romakita/json-properties",
   "devDependencies": {
@@ -45,6 +45,11 @@
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
     "typescript": "^2.5.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "src": "src",
+    "test": "test"
   },
   "release": {
     "debug": false,
