@@ -1,6 +1,6 @@
 {
   "name": "ts-json-properties",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Use Typescript decorators to retrieve a property from properties.json and load it on class attribute.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
