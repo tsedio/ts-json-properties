@@ -5,7 +5,8 @@ const clone = (src: any): any => (
 export function parse(expression: string, scope: any): any {
     let keys: string[] = expression.split(".");
 
-    while ((scope = scope[keys.shift()]) && keys.length) {}
+    while ((scope = scope[keys.shift()!]) && keys.length) {
+    }
 
     return typeof scope === "object" ? clone(scope) : scope;
 }

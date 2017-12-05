@@ -1,22 +1,35 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "module": "commonjs",
-    "target": "es5",
-    "noImplicitAny": false,
+    "target": "es2015",
     "sourceMap": true,
-    "declaration":false,
-    "experimentalDecorators":true,
+    "declaration": false,
+    "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
     "isolatedModules": false,
     "suppressImplicitAnyIndexErrors": false,
-    "lib": ["es6", "dom"],
-    "typeRoots":["./node_modules/@types"]
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "importHelpers": true,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
-
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ],
   "exclude": [
     "node_modules",
+    "multipartfiles",
+    "swagger",
+    "servestatic",
+    "ajv",
     "lib"
   ]
 }

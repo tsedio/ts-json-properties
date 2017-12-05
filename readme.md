@@ -1,4 +1,4 @@
-# ts-json-properties 
+# Ts.JsonProperties
 
 [![Build Status](https://travis-ci.org/Romakita/ts-json-properties.svg?branch=master)](https://travis-ci.org/Romakita/ts-json-properties)
 [![Coverage Status](https://coveralls.io/repos/github/Romakita/ts-json-properties/badge.svg?branch=master)](https://coveralls.io/github/Romakita/ts-json-properties?branch=master)
@@ -17,7 +17,7 @@
  * `@Value(expression)` : resolve expression and values the attribute (decorator).
  * `@Constant(expression)` : resolve expression and values the attribute but attribut is frozen (decorator).
  * `@EnvValue(expression)` : resolve expression and values the attribute from process.node.env or from properties if env value doesn't exists (decorator).
- * `Properties.getValue` : resolve expression and values the attribute (programmatic).
+ * `Properties.get()` : resolve expression and values the attribute (programmatic).
 
 ## Installation
 ```bash
