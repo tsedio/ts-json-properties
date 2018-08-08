@@ -1,14 +1,17 @@
 # Ts.JsonProperties
 
-[![Build Status](https://travis-ci.org/Romakita/ts-json-properties.svg?branch=master)](https://travis-ci.org/Romakita/ts-json-properties)
-[![Coverage Status](https://coveralls.io/repos/github/Romakita/ts-json-properties/badge.svg?branch=master)](https://coveralls.io/github/Romakita/ts-json-properties?branch=master)
-[![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=100)](https://github.com/ellerbrock/typescript-badges/) 
+[![Build Status](https://travis-ci.org/TypedProject/ts-json-properties.svg?branch=master)](https://travis-ci.org/TypedProject/ts-json-properties)
+[![Coverage Status](https://coveralls.io/repos/github/TypedProject/ts-json-properties/badge.svg?branch=master)](https://coveralls.io/github/TypedProject/ts-json-properties?branch=master)
+![npm](https://img.shields.io/npm/dm/ts-json-properties.svg)
+[![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=100)](https://github.com/ellerbrock/typescript-badges/)
 [![Package Quality](http://npm.packagequality.com/shield/ts-json-properties.png)](http://packagequality.com/#?package=ts-json-properties)
 [![npm version](https://badge.fury.io/js/ts-json-properties.svg)](https://badge.fury.io/js/ts-json-properties)
 [![Dependencies](https://david-dm.org/romakita/ts-json-properties.svg)](https://david-dm.org/romakita/ts-json-properties#info=dependencies)
 [![img](https://david-dm.org/romakita/ts-json-properties/dev-status.svg)](https://david-dm.org/romakita/ts-json-properties/#info=devDependencies)
 [![img](https://david-dm.org/romakita/ts-json-properties/peer-status.svg)](https://david-dm.org/romakita/ts-json-properties/#info=peerDependenciess)
 [![Known Vulnerabilities](https://snyk.io/test/github/romakita/ts-json-properties/badge.svg)](https://snyk.io/test/github/romakita/ts-json-properties)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 > Use typescript decorator to retrieve a property from properties.json and load it on class attribute.
 
@@ -20,6 +23,7 @@
  * `Properties.get()` : resolve expression and values the attribute (programmatic).
 
 ## Installation
+
 ```bash
 npm install -g typescript
 npm install ts-json-properties
