@@ -5,19 +5,23 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf 'test/**/*.{js,js.map}' 'src/**/*.{js,js.map}'",
-    "tslint": "tslint 'src/**/*.ts?(x)'",
-    "test": "npm run clean && npm run tsc && npm run tslint && NODE_ENV=test nyc --reporter=html --reporter=text _mocha --recursive",
-    "coveralls:travis": "nyc report --reporter=text-lcov | coveralls",
+    "precommit": "lint-staged",
+    "postcommit": "git update-index --again",
+    "prepublishOnly": "gflow release post",
+    "gflow-release-pre": "",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once",
+    "travis-coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "tslint": "tslint --project tsconfig.json",
+    "test": "npm run tsc && npm run tslint && cross-env NODE_ENV=test nyc --reporter=html --reporter=text _mocha --recursive",
     "tsc": "tsc --project tsconfig.json",
-    "tsc:compile": "rimraf ./lib && tsc --project tsconfig.compile.json",
-    "doc:serve": "concurrently \"tsc --project tsconfig.compile.json -w\" \"docsify serve ./docs\" \"cd docs/_build && nodemon --delay 2.5 -e ts --watch ../../lib build-api.js\"",
+    "build": "tsc --project tsconfig.compile.json",
     "doc:build": "exit 0",
-    "prepublish": "npm run tsc:compile"
+    "prettier": "prettier '{src,test}/**/*.ts' --write"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Romakita/ts-json-properties.git"
+    "url": "https://github.com/TypedProject/ts-json-properties.git"
   },
   "keywords": [
     "ts",
@@ -30,21 +34,27 @@
   "author": "Romakita",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Romakita/ts-json-properties/issues"
+    "url": "https://github.com/TypedProject/ts-json-properties/issues"
   },
-  "homepage": "https://github.com/romakita/json-properties",
+  "homepage": "https://github.com/TypedProject/ts-json-properties",
   "devDependencies": {
     "@types/chai": "^4.0.8",
-    "@types/mocha": "^2.2.44",
-    "@types/node": "^8.0.54",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.5.7",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
-    "mocha": "^4.0.1",
-    "nyc": "^11.4.0",
-    "semantic-release": "^7.0.2",
-    "ts-node": "^3.3.0",
+    "cross-env": "^5.2.0",
+    "gflow": "^2.1.7",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "prettier": "^1.14.0",
+    "semantic-release": "^15.9.5",
+    "travis-deploy-once": "^5.0.2",
+    "ts-node": "^7.0.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.5.0"
+    "typescript": "^3.0.1"
   },
   "directories": {
     "lib": "lib",
@@ -54,9 +64,5 @@
   "release": {
     "debug": false,
     "branch": "production"
-  },
-  "gflow": {
-    "master": "master",
-    "production": "production"
   }
 }
